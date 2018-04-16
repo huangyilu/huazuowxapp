@@ -207,6 +207,8 @@ button::after {
 .more-paint .item image {
     width: 100%;
     border-radius: 5rpx;
+    border-bottom: 1rpx #f2f2f2 solid;
+    border-top: 1rpx #f2f2f2 solid;
 }
 
 .more-paint .item .tit {
