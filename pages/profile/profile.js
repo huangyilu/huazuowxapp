@@ -18,6 +18,8 @@ Page({
             des: "待评分",
             status: 4
         }],
+        navbarTitle: '我的',
+        isIphoneX: app.getSystemModelIPhoneX()
     },
     onShow() {
         for (var i = 0, list = that.data.navList; i < list.length; i++) {
@@ -44,8 +46,8 @@ Page({
     },
     navToOrder(e) {
         wx.setStorageSync('honey-order-status',e.currentTarget.dataset.status);
-        wx.switchTab({
-            url: `../order/order`
+        wx.navigateTo({
+          url: '../order/order',
         })
     },
     coupon(e) {

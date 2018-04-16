@@ -2,7 +2,7 @@
 
 page {
     background-color: #f6f6f6;
-    font-family: -apple-system-font, 'Helvetica Neue', Helvetica, 'Microsoft YaHei', sans-serif
+    font-family: -apple-system-font, 'Helvetica Neue', Helvetica, 'Microsoft YaHei', sans-serif;
 }
 
 .container {
@@ -21,7 +21,11 @@ input {
 
 .bg-default {
     background: #f6f6f6;
-    padding-top: 150rpx;
+    padding-top: 64px;
+}
+
+.fix-iphonex-navbar {
+    padding-top: 108px!important;
 }
 
 button::after {
@@ -38,7 +42,20 @@ button::after {
     width: 100%;
     height: 100rpx;
     background: none;
-    margin-bottom: 30rpx;
+    /* margin-bottom: 30rpx; */
+}
+.draw-footer-fix-iphonex {
+    height: 140rpx;
+}
+.draw-footer .confirm-btn {
+    background: -webkit-linear-gradient(left, #49B5FE, #9C60F6);
+    color: white;
+    font-size: 36rpx;
+    text-align: center;
+    line-height: 100rpx;
+}
+.draw-footer .confirm-btn-fix-iphonex {
+    line-height: 140rpx;
 }
 
 .show-tips {
@@ -189,16 +206,16 @@ button::after {
 
 .more-paint .item image {
     width: 100%;
-    border-radius: 10rpx;
-    /*border-bottom: 2rpx solid #e8e8e8;*/
+    border-radius: 5rpx;
 }
 
 .more-paint .item .tit {
-    font-size: 30rpx;
+    font-size: 36rpx;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     padding: 10rpx 20rpx;
+    font-weight: 700;
 }
 
 .more-paint .item .price {
@@ -209,6 +226,7 @@ button::after {
 .more-paint .item .painttag {
     float: right;
     font-size: 33rpx;
+    font-weight: 700;
     margin-right: 32rpx;
 }
 .btn-green{
@@ -297,3 +315,4 @@ button::after {
     bottom: 30rpx;
     right: 30rpx;
 }
+

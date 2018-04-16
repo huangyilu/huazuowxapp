@@ -6,6 +6,8 @@ var app = getApp();
 Page({
     data: {
         getImgMid: app.getImgMid(),
+        navbarTitle: '确认订单',
+        isIphoneX: app.getSystemModelIPhoneX()
     },
     onShow(e) {
         that.getPaintingPrice();

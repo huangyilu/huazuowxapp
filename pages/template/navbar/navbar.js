@@ -6,7 +6,7 @@ Component({
   properties: {
     bgColor: {
       type: String,
-      value: ''
+      value: 'white'
     },
     indexPage: {
       type: Boolean,
@@ -22,7 +22,21 @@ Component({
    * 组件的初始数据
    */
   data: {
+    isIPhoneX: false
+  },
 
+  ready() {
+    var that = this;
+    wx.getSystemInfo({
+      success: function(res) {
+        console.log( 'getSystemInfo ... ' + JSON.stringify(res));
+        if (res.model == 'iPhone X') {
+          that.setData({
+            isIPhoneX: true
+          })
+        }
+      },
+    })
   },
 
   /**
@@ -32,6 +46,11 @@ Component({
     bindGoBackTap: function () {
       wx.navigateBack({
         delta: 1
+      })
+    },
+    bindSearchTap: function () {
+      wx.navigateTo({
+        url: '../search/search',
       })
     }
   }

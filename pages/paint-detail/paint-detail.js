@@ -19,6 +19,7 @@ var minusBtnImg = {
 Page({
     data: {
         navbarTitle: '画作详情',
+        isIphoneX: app.getSystemModelIPhoneX(),
         windowWidth: '',
         windowHeight: '',
         showOrderPanel: false,

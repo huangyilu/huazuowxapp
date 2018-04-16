@@ -1,16 +1,26 @@
 <import src="../template/template.wxml" />
-<view class="container bg-default">
+
+<navbar bg-color="{{ navbarBgColor }}" navbar-title="{{ navbarTitle }}" />
+
+<view class="container bg-default {{ isIphoneX ? 'fix-iphonex-navbar' : '' }}">
     <view class="tp-tit">
-        收货人：{{order.contactor}} {{order.phone}}
+        <text>收货人：{{order.contactor}} {{order.phone}}</text>
+        <view class='tp-tit-bottom-border'></view>
     </view>
     <view class="order-detail">
-        <image src="{{paint.imageUrls+getImgMid}}" alt="" mode="aspectFill" />
-        <view class="right">
-            <view class="des">
-                画师：{{paint.artistProfile.nickname}}
+        <view class='top'>
+            <image class='artistlogo' src='../../images/honey_logo_2.png'></image>
+            <view>画师：{{paint.artistProfile.nickname}}</view>
+        </view>
+        <view class='bottom'>
+            <image class='mainImg' src="{{paint.imageUrls+getImgMid}}" alt="" mode="aspectFill" />
+            <view class="right">
+                <view class="des">
+                    画师：{{paint.artistProfile.nickname}}
+                </view>
+                <view class="options">{{order.paintSizeName}}，{{order.paintStyleName||paint.prodStyle}}，人数x{{order.numOfPeople}}</view>
+                <view class="price">¥{{order.paintPrice}}</view>
             </view>
-            <view class="options">{{order.paintSizeName}}，{{order.paintStyleName||paint.prodStyle}}，人数x{{order.numOfPeople}}</view>
-            <view class="price">¥{{order.paintPrice}}</view>
         </view>
     </view>
     <view class="item-contain">
@@ -48,8 +58,8 @@
     </view>
 
 </view>
-<view class="draw-footer">
-    <view class="order-confirm" bindtap="orderConfirm">
+<view class="draw-footer {{ isIphoneX ? 'draw-footer-fix-iphonex' : '' }}">
+    <view class="order-confirm {{ isIphoneX ? 'confirm-btn-fix-iphonex' : '' }}" bindtap="orderConfirm">
         确认支付
     </view>
 </view>

@@ -1,13 +1,16 @@
 <import src="../template/template.wxml" />
 <template is="blank" wx:if="{{!orderList.length}}"></template>
-<view class="order-category">
-    <view class="item {{currentTab==index?'active':''}}" wx:for="{{naveList}}" bindtap="chooseTab" data-index="{{index}}">
+
+<navbar navbar-title="{{ navbarTitle }}" />
+
+<view class="order-category {{ isIphoneX ? 'order-category-fix-iphonex' : '' }}">
+    <view class="item {{currentTab==index?'active':''}}" wx:for="{{naveList}}" wx:key="{{ index }}" bindtap="chooseTab" data-index="{{index}}">
         <text class="text">{{item}}</text>
     </view>
 </view>
-<scroll-view class='order-list' scroll-y="true" bindscrolltolower="handleLoadMore" lower-threshold="100" scroll-into-view="{{pageTop}}">
+<scroll-view class='order-list {{ isIphoneX ? "order-list-fix-iphonex" : "" }}' scroll-y="true" bindscrolltolower="handleLoadMore" lower-threshold="100" scroll-into-view="{{pageTop}}">
     <!-- 第一个订单 -->
-    <view class='item' wx:for="{{orderList}}" wx:if="{{item.type==0}}">
+    <view class='item' wx:for="{{orderList}}" wx:key="{{ index }}" wx:if="{{item.type==0}}">
         <view class='header'>
             <view class='half left'>
                 状态：

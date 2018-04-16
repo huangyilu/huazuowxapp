@@ -2,7 +2,7 @@
 
 <navbar bg-color="{{ navbarBgColor }}" navbar-title="{{ navbarTitle }}" />
 
-<view class="container bg-default {{showOrderPanel?'no-scroll':''}}">  
+<view class="container bg-default {{showOrderPanel?'no-scroll':''}} {{ isIphoneX ? 'fix-iphonex-navbar' : '' }}">  
     <view class="top-img">
         <image src="{{paint.imageUrls+getImgBig}}" alt="" mode="aspectFill" style="height:{{windowWidth}}px" />
         <view class="img-mask" wx:if="{{showOrderPanel}}" bindtap="closePanel" ></view>
@@ -38,23 +38,21 @@
     <view style="clear:both"></view>
 </view>
 <!-- 下单 footer -->
-<view class="draw-footer">
+<view class="draw-footer {{ isIphoneX ? 'draw-footer-fix-iphonex' : '' }}">
     <view wx:if="{{!showOrderPanel}}">
         <view class="contract-text" open-type="contact">
           <image class='customerService-icon' src="../../images/customerService.png" alt="" />
         </view>
-        <contact-button size="6" class="content-button" type="default-light">
-          
-        </contact-button>
+        <contact-button size="6" class="content-button" type="default-light"></contact-button>
         <view class="right" bindtap="makeOrder">立即下单</view>
-        <image class='gotop-icon' bindtap='bindGoTopTap' src='../../images/goTop.png'></image>
+        <image class='gotop-icon {{ isIphoneX ? "gotop-icon-fix-iphonex" : "" }}' bindtap='bindGoTopTap' src='../../images/goTop.png'></image>
     </view>
-    <view wx:if="{{showOrderPanel}}" class="order-confirm" bindtap="orderConfirm">
+    <view wx:if="{{showOrderPanel}}" class="order-confirm {{ isIphoneX ? 'order-confirm-fix-iphoneX' : '' }}" bindtap="orderConfirm">
         确定
     </view>
 </view>
 <!-- 订单弹框 -->
-<view class="order-panel" wx:if="{{showOrderPanel}}">
+<view class="order-panel {{ isIphoneX ? 'order-panel-fix-iphonex' : '' }}" wx:if="{{showOrderPanel}}">
     <view class="close-panal-btn">
         <image src="../../images/popup_button_close@2x.png" bindtap="closePanel"></image>
     </view>
@@ -68,6 +66,7 @@
         <view class="prod-info">
             <view class="price">
                 ￥{{paintPrice.totalPrice}}
+                <text class='preprice'>￥{{paintPrice.totalPrice}}</text>
             </view>
             <view class="style">
                 {{paint.prodStyle}}

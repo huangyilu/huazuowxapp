@@ -98,6 +98,9 @@ page {
     right: 30rpx;
     bottom: 0;
 }
+.draw-footer .gotop-icon-fix-iphonex {
+    margin-bottom:40rpx;
+}
 
 .draw-footer .contract-text {
     width: 100rpx;
@@ -130,15 +133,16 @@ page {
 
 .order-panel {
     position: fixed;
-    bottom: 92rpx;
+    bottom: 100rpx;
     height: 75%;
     background: white;
     width: 100%;
-    z-index: 999999
+    z-index: 999999;
+    border-radius: 30rpx 30rpx 0 0;
 }
-
-.order-panel .top {
-    height: 190rpx;
+.order-panel-fix-iphonex {
+    height: 72%;
+    bottom: 141rpx;
 }
 
 .order-panel .top .left {
@@ -146,19 +150,14 @@ page {
     display: inline-block;
     position: relative;
     left: 35rpx;
-    box-shadow: 0 0 60rpx #e8e8e8;
-    box-sizing: border-box;
-    height: 162rpx;
+    top: 30rpx;
 }
 
 .order-panel .top .left .img-con {
     width: 100%;
     padding-top: 100%;
     position: relative;
-    top: -60rpx;
     overflow: hidden;
-    border-radius: 15rpx;
-    border: 2px solid white;
 }
 
 .order-panel .top .left image {
@@ -177,31 +176,37 @@ page {
     vertical-align: top;
     padding-left: 80rpx;
     box-sizing: border-box;
-    padding-top: 7.5%
+    padding-top: 125rpx;
 }
 
 .order-panel .top .prod-info .price {
-    font-size: 34rpx;
+    font-size: 40rpx;
     color: #8597fd;
     line-height: 200%
 }
-
+.order-panel .top .prod-info .preprice {
+    font-size: 38rpx;
+    color: #999999;
+    margin-left: 20rpx;
+    text-decoration:line-through;
+}
 .order-panel .top .prod-info .style {
-    font-size: 28rpx;
+    font-size: 36rpx;
     color: #333;
     line-height: 150%
 }
 
 .order-panel .panel-scroll {
-    height: calc(100% - 190rpx);
+    height: calc(100% - 285rpx);
     overflow-y: scroll;
     overflow-x: hidden;
+    margin-top: 30rpx;
 }
 
 .size-pick {
     margin: 0 15rpx;
     border-bottom: 1px solid #F5F5F5;
-    padding-bottom: 5rpx;
+    padding-bottom: 25rpx;
 }
 
 .size-pick .title {
@@ -212,7 +217,7 @@ page {
 }
 
 .size-pick text {
-    display: inline-block;
+    /* display: inline-block; */
     width: calc(25% - 30rpx);
     background: #F6F6F6;
     color: #333333;
@@ -224,6 +229,7 @@ page {
     text-align: center;
     overflow: hidden;
     border-radius: 50rpx;
+    padding:15rpx 20rpx;
 }
 
 .size-pick .size-select {
@@ -307,7 +313,13 @@ page {
     color: white;
     font-size: 36rpx;
     text-align: center;
-    line-height: 92rpx;
+    line-height: 100rpx;
+    bottom:-30rpx;
+    position:absolute;
+    width:100%;
+}
+.order-confirm-fix-iphoneX {
+    line-height:  141rpx;
 }
 .close-panal-btn{
     position: absolute;
@@ -326,4 +338,8 @@ page {
     width: 100%;
     height:100%;
     background: rgba(0,0,0,0.5);
+}
+
+.draw-footer {
+    margin-bottom: 30rpx;
 }

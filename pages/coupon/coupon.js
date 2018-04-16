@@ -4,7 +4,10 @@ const verify = require('../../utils/verify.js');
 let that, prevPage, order, paintPrice, totalPrice, pageType;
 let app = getApp();
 Page({
-    data: {},
+    data: {
+      navbarTitle: '选择优惠券',
+      isIphoneX: app.getSystemModelIPhoneX()
+    },
     onLoad: function(options) {
         that = this;
         pageType = options.from;

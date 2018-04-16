@@ -5,12 +5,15 @@
 
 .order-category {
   background:#fff;
-  height:80rpx;
+  height: 40px;
   font-size:26rpx;
   color:#666;
-    position: fixed;
-    top: 0;
-    width: 100%;
+  position: fixed;
+  top: 64px;
+  width: 100%;
+}
+.order-category-fix-iphonex {
+    top: 108px;
 }
 
 .order-category .item {
@@ -35,11 +38,15 @@
 
 /* 列表部分卡片样式 */
 .order-list{
-    height: calc(100% - 80rpx);
-    margin-top: 80rpx;
+    height: calc(100% - 230rpx);
+    margin-top: 104px;
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+.order-list-fix-iphonex {
+    height: calc(100% - 300rpx);
+    margin-top: 144px;
 }
 .order-list .item {
   background:#fff;

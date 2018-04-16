@@ -1,6 +1,9 @@
 <import src="../template/template.wxml" />
 <template is="blank" wx:if="{{!couponList.length}}"></template>
-<view class="container bg-default">
+
+<navbar bg-color="{{ navbarBgColor }}" navbar-title="{{ navbarTitle }}" />
+
+<view class="container bg-default {{ isIphoneX ? 'fix-iphonex-navbar' : '' }}">
     <view class="no-coupon" wx:if="{{pageType!='profile'}}">
         不使用优惠券
         <image src="{{useCoupon?'../../images/check@2x.png':'../../images/checked@2x.png'}}" alt=""  bindtap="couponToggle"/>

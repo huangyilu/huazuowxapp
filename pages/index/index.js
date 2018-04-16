@@ -21,7 +21,8 @@ Page({
     navbarBgColor: '',
     scrollIntoView: '',
     gotopHidden: true,
-    indexPage: true
+    indexPage: true,
+    isIphoneX: app.getSystemModelIPhoneX()
   },
   onLoad: function () {
     that = this;
@@ -35,6 +36,7 @@ Page({
       console.log('styleTags == ' + JSON.stringify(res.data.styleTags));
       that.getPaintList(true);
     });
+    console.log('index iphonex = ' + that.data.isIphoneX);
   },
   getPaintList: function (isFirst) {
     var styleId = that.data.navList[that.data.selectTab].id

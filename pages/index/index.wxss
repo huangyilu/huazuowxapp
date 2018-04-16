@@ -1,4 +1,4 @@
-/**index.wxss**/
+classify-nav/**index.wxss**/
 page{
     height: 100%;
     position: relative;
@@ -16,9 +16,11 @@ view, text {
 .classify-nav{
     height: 80rpx;
     position: fixed;
-    top:150rpx;
+    top: 64px;
     white-space: nowrap; 
     font-size: 41rpx;
+    font-weight: 500;
+    background-color: white;
 }
 .nav-item{
     display: inline-block;
@@ -43,19 +45,17 @@ view, text {
 .classify-content{
     height: calc(100% - 80rpx);
     position: fixed;
-    bottom: -150rpx;
+    bottom: -64px;
 }
 .classify-content .more-paint{
-    padding: 0 50rpx 150rpx;
+    padding: 15rpx 50rpx 150rpx;
 }
 
 .more-paint view{
     background: white;
 }
 .more-paint .item {
-    border-style: none;
-    box-shadow: rgba(0,0,0,0.04) 0px 0px 20rpx 1rpx;
-    border-radius: 0;
+    margin: 15rpx 10rpx;
 }
 .more-paint .item .browse-num{
     height: 130rpx;

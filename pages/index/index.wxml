@@ -6,12 +6,12 @@
 <template is="blank" wx:if="{{!paintList.length}}"></template>
 
 <view class="container bg-default">
-    <scroll-view class="classify-nav" style='background-color:{{ navbarBgColor }};' scroll-x scroll-into-view='{{ scrollIntoView }}' scroll-with-animation='true'>
+    <scroll-view class="classify-nav" style='background-color:{{ navbarBgColor }};{{ isIphoneX ? "top:108px!important;" : "" }}' scroll-x scroll-into-view='{{ scrollIntoView }}' scroll-with-animation='true'>
         <view class="nav-item {{ selectTab == index ? (selectTab == 0 ? 'item-select-first' : 'item-select') : (selectTab == 0 ? 'item-first' : '')}} {{ selectTab == 0 ? '' : '' }}" style='{{ index == 0 ? "margin-left:60rpx;" : "" }}' wx:for="{{navList}}" bindtap="selectTab" id='{{ "to" + index }}'  data-name='{{ item.name }}' data-index="{{index}}">
             {{item.name}}
         </view>
     </scroll-view>
-    <scroll-view class="classify-content" scroll-y="true" bindscrolltolower="handleLoadMore" bindscroll="handleScroll" lower-threshold="100" scroll-into-view="{{pageTop}}">
+    <scroll-view class="classify-content" style='{{ isIphoneX ? "bottom:-80px!important;height:calc(100% - 135rpx)!important;" : "" }}' scroll-y="true" bindscrolltolower="handleLoadMore" bindscroll="handleScroll" lower-threshold="100" scroll-into-view="{{pageTop}}">
         <view class="more-paint" id="pageTop">
             <view class="item" style="width:{{windowWidth-60}}px;" wx:for="{{paintList}}" bindtap="paintDetail" data-id="{{item.prod.id}}">
                 <view class='browse-num'>{{ item.prod.viewCount }}人浏览了</view>

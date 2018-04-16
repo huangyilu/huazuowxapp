@@ -1,5 +1,8 @@
 <import src="../template/template.wxml" />
-<view class="container bg-default">
+
+<navbar navbar-title="{{ navbarTitle }}" /> 
+
+<view class="container bg-default {{ isIphoneX ? 'fix-iphonex-navbar' : '' }}">
     <view class="profile">
         <image src="{{userInfo.avatar}}" alt="" mode="aspectFill" wx:if="{{userInfo.avatar}}"/>
         <image src="../../images/avatar_default@2x.png" alt="" mode="aspectFill" wx:if="{{!userInfo.avatar}}" />
@@ -18,7 +21,7 @@
             </view>
         </view>
         <view class="order-type">
-            <view class="type-item" wx:for="{{navList}}" bindtap="navToOrder" data-status="{{item.status}}">
+            <view class="type-item" wx:for="{{navList}}" wx:key="{{ index }}" bindtap="navToOrder" data-status="{{item.status}}">
                 <image src="{{item.img}}" alt="" />
                 <text class="circle">{{item.total}}</text>
                 <view>{{item.des}}</view>
@@ -45,6 +48,12 @@
             <text>优惠券</text>
             <image src="../../images/right.png" alt="" class="right" />
         </view>
+        
+        <button class="copoun-nav customer-nav" open-type="contact" >
+            <image src="../../images/customerService_g.png" alt="" class="coupon" />
+            <text>联系客服</text>
+            <image src="../../images/right.png" alt="" class="right" />
+        </button>
     </view>
 </view>
 <template is="toast" data="{{showTips,tipsInfo}}">
