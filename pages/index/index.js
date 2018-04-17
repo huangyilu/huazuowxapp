@@ -18,7 +18,7 @@ Page({
   data: {
     selectTab: 0,
     getImgMid: app.getImgMid(),
-    navbarBgColor: '',
+    navbarBgColor: '#FFFFFF',
     scrollIntoView: '',
     gotopHidden: true,
     indexPage: true,
@@ -36,7 +36,6 @@ Page({
       console.log('styleTags == ' + JSON.stringify(res.data.styleTags));
       that.getPaintList(true);
     });
-    console.log('index iphonex = ' + that.data.isIphoneX);
   },
   getPaintList: function (isFirst) {
     var styleId = that.data.navList[that.data.selectTab].id
@@ -51,7 +50,7 @@ Page({
       value: 10
     }];
     pageData.getData('userAction/gallerySort', function (dataList, isLoadAll) {
-      console.log('gallerySort', JSON.stringify(dataList));
+      // console.log('gallerySort', JSON.stringify(dataList));
       that.setData({
         paintList: dataList,
         isLoadAll: isLoadAll,
@@ -61,18 +60,17 @@ Page({
   selectTab(e) {
     var index = e.currentTarget.dataset.index;
     var name = e.currentTarget.dataset.name;
-    console.log('idid =' + e.currentTarget.id);
     if (index - that.data.selectTab) {
       that.setData({
         selectTab: index,
-        navbarBgColor: formatNavbarColor[name]
+        navbarBgColor: that.data.navList[index].color
       })
       if (index == that.data.navList.length-1) {
         that.setData({
           scrollIntoView: e.currentTarget.id
         })
       }
-      if (that.data.navbarBgColor != '') {
+      if (that.data.navbarBgColor != '#FFFFFF') {
         wx.setNavigationBarColor({
           frontColor: '#ffffff',
           backgroundColor: '#000000',

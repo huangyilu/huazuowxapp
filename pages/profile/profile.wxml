@@ -23,7 +23,7 @@
         <view class="order-type">
             <view class="type-item" wx:for="{{navList}}" wx:key="{{ index }}" bindtap="navToOrder" data-status="{{item.status}}">
                 <image src="{{item.img}}" alt="" />
-                <text class="circle">{{item.total}}</text>
+                <text class="circle" wx:if='{{ item.total != 0 }}'>{{item.total}}</text>
                 <view>{{item.des}}</view>
             </view>
         </view>

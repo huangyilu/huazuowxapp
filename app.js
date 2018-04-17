@@ -14,7 +14,8 @@ App({
     },
     getSystemModelIPhoneX() {
       var model = this.data.systemInfo.model;
-      if (model == 'iPhone X') {
+      let models = model.split('(');
+      if (models[0] == 'iPhone X ') {
         return true;
       } else {
         return false;

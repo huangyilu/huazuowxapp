@@ -7,7 +7,8 @@ Page({
     data: {
         getImgMid: app.getImgMid(),
         navbarTitle: '确认订单',
-        isIphoneX: app.getSystemModelIPhoneX()
+        isIphoneX: app.getSystemModelIPhoneX(),
+        isReadProtocol: false
     },
     onShow(e) {
         that.getPaintingPrice();
@@ -107,6 +108,12 @@ Page({
             })
 
         })
+    },
+    bindReadProtocolTap(e) {
+      let isReadProtocol = that.data.isReadProtocol;
+      that.setData({
+        isReadProtocol: !isReadProtocol
+      })
     }
 
 })

@@ -87,12 +87,13 @@ view,text{
 }
 .item-contain{
     background: white;
-    padding: 0 20rpx;
+    /* padding: 0 20rpx; */
 }
 .more-item{
     height: 120rpx;
     line-height: 120rpx;
     font-size: 28rpx;
+    padding: 0 20rpx;
     border-top: 1px solid #f5f5f5; 
 }
 .item-input{
@@ -110,7 +111,7 @@ view,text{
     height: 46rpx;
     position: absolute;
     top:37rpx;
-    left: 0rpx;
+    left: 20rpx;
 }
 .more-item view{
     height: auto;
@@ -135,13 +136,12 @@ view,text{
 }
 .relative{
     position: relative;
-    padding-left: 70rpx;
-
+    padding-left: 90rpx;
 }
 .relative switch{
     position: absolute;
-    right: 0;
-    top:0;
+    right: 20rpx;
+    top: 0;
 }
 .relative .item-note{
     font-size: 28rpx;

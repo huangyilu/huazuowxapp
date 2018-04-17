@@ -43,6 +43,7 @@ page {
 .detail-info .price-info .style {
     float: right;
     font-size: 33rpx;
+    font-weight: 600;
 }
 
 .detail-info .des {
@@ -50,6 +51,7 @@ page {
     color: #333;
     line-height: 44rpx;
     margin: 10rpx 0 0;
+    font-weight: 600;
 }
 
 .detail-info .count {
@@ -73,6 +75,10 @@ page {
     font-size: 36rpx;
     color: #999999;
     padding: 30rpx 20rpx 20rpx
+}
+
+.more-paint .item .tit {
+    font-size: 30rpx;
 }
 
 .draw-footer .left {

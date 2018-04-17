@@ -13,7 +13,7 @@
         <view class="price-info">
             <text class="price">¥{{paint.price}}</text>
             <text class="preprice">¥{{paint.price}}</text>
-            <text class="style">#{{paint.prodStyle}}</text>
+            <text class="style" style='color:{{ paint.prodColor }}'>#{{paint.prodStyle}}</text>
         </view>
         <view class="count">{{paint.viewCount}}人浏览</view>
         <!-- <view class="love-avatar">

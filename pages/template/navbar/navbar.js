@@ -6,7 +6,7 @@ Component({
   properties: {
     bgColor: {
       type: String,
-      value: 'white'
+      value: '#FFFFFF'
     },
     indexPage: {
       type: Boolean,
@@ -26,17 +26,13 @@ Component({
   },
 
   ready() {
-    var that = this;
-    wx.getSystemInfo({
-      success: function(res) {
-        console.log( 'getSystemInfo ... ' + JSON.stringify(res));
-        if (res.model == 'iPhone X') {
-          that.setData({
-            isIPhoneX: true
-          })
-        }
-      },
-    })
+    var model = wx.getSystemInfoSync().model;
+    let models = model.split('(');
+    if (models[0] == 'iPhone X ') {
+      this.setData({
+        isIPhoneX: true
+      })
+    }
   },
 
   /**

@@ -118,9 +118,9 @@ view, text {
 .latest-message text{
     color:#E7E7E7;
     position: absolute;
-    right: -10rpx;
-    top:20rpx;
-    font-size: 30rpx;
+    right: -5.5px;
+    top: 10.5px;
+    font-size: 15px;
 }
 
 .latest-message .left, .latest-message .right {
@@ -132,13 +132,13 @@ view, text {
 }
 
 .latest-message .left {
-    font-size: 19rpx;
+    font-size: 10px;
     border-right: 4rpx solid #E7E7E7;
-    padding: 20rpx 5rpx;
+    padding: 10px 2.5px;
     margin: 15rpx;
-    padding-right: 25rpx;
+    padding-right: 12.5px;
     margin-right: 10rpx;
-        position: relative;
+    position: relative;
 }
 
 .latest-message .left view {
