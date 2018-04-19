@@ -34,12 +34,12 @@ Page({
         applyApi.postByToken('me/queryCoupon', {
             size: 1000
         }, function(res) {
-            console.log('queryCoupon', res);
+          console.log('queryCoupon', JSON.stringify(res));
             var couponLen = 0;
             var list = res.data.list;
             for (var i in list) {
                 list[i].endTime = applyApi.getDate(list[i].endTime);
-                list[i].dateDiff = applyApi.dateDiff(list[i].endTime);
+                list[i].dateDiff = applyApi.momentDiff(list[i].endTime);
                 if (pageType != 'profile') {
                     if (!list[i].standardValue || list[i].standardValue <= totalPrice) {
                         list[i].canUse = true;

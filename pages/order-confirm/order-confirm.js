@@ -90,29 +90,47 @@ Page({
         })
     },
     orderConfirm(e) {
+
+      if (that.data.isReadProtocol) {
         that.data.order.price = that.data.paintPrice.totalPrice;
         that.data.order.paintDesignRequireId = 0;
         console.log('orderParam', that.data.order);
-        applyApi.postByToken('order/make-order', that.data.order, function(res) {
-            console.log('make-order', res);
-            orderApply.pay(res.data, function() {
-                wx.setStorageSync('honey-order-status', 2);
-                wx.switchTab({
-                    url: `../order/order`
-                })
-            }, function() {
-                wx.setStorageSync('honey-order-status', 1);
-                wx.switchTab({
-                    url: `../order/order`
-                })
+        applyApi.postByToken('order/make-order', that.data.order, function (res) {
+          console.log('make-order', res);
+          orderApply.pay(res.data, function () {
+            wx.setStorageSync('honey-order-status', 2);
+            wx.navigateTo({
+              url: `../order/order`
             })
+          }, function () {
+            wx.setStorageSync('honey-order-status', 1);
+            wx.navigateTo({
+              url: `../order/order`
+            })
+          })
 
         })
+      } else {
+        that.setData({
+          showTips: true,
+          tipsInfo: '请同意用户协议'
+        })
+        setTimeout(function () {
+          that.setData({
+            showTips: false,
+          })
+        }, 1500)
+      }
     },
-    bindReadProtocolTap(e) {
+    bindCheckReadProtocolTap(e) {
       let isReadProtocol = that.data.isReadProtocol;
       that.setData({
         isReadProtocol: !isReadProtocol
+      })
+    },
+    bindReadProtocolTap(e) {
+      wx.navigateTo({
+        url: '../protocol/protocol',
       })
     }
 

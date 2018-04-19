@@ -22,7 +22,7 @@
             激活
         </view>
     </view>
-    <view class="coupon-item-con" wx:for="{{couponList}}">
+    <view class="coupon-item-con" wx:for="{{couponList}}" wx:key='{{ index }}'>
         <view class="coupon-item {{item.canUse?'':'unuseable'}}">
             <view class="left">
                 <view wx:if="{{item.standardValue}}" class="ms"><text>￥</text>{{item.value}}</view>

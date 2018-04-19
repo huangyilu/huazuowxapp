@@ -326,6 +326,9 @@ button::after {
     padding:0 20rpx;
     color: #999999;
 }
+.read-protocol-view view {
+    display: inline-block;
+}
 .read-protocol-view .right-icon {
     width: 44rpx;
     height: 44rpx;

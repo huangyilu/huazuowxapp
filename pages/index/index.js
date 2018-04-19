@@ -33,7 +33,7 @@ Page({
       that.setData({
         navList: res.data.styleTags
       })
-      console.log('styleTags == ' + JSON.stringify(res.data.styleTags));
+      // console.log('styleTags == ' + JSON.stringify(res.data.styleTags));
       that.getPaintList(true);
     });
   },
