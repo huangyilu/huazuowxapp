@@ -11,6 +11,7 @@ App({
     onLaunch: function() {
         that = this;
         this.getImgMid();
+        this.openSetting();
     },
     getSystemModelIPhoneX() {
       var model = this.data.systemInfo.model;
@@ -36,37 +37,53 @@ App({
         return pages[pages.length - pre - 1]; //上一个页面
     },
     openSetting: function(callback) {
-        wx.getStorage({
-            key:'honey-token',
-            success:function(res){
-                if(callback){
-                    callback();
-                }
-            },
-            fail:function(){
-                wx.openSetting({
-                    success: (res) => {
-                        console.log('openSetting设置成功: ', res);
-                        if (res.authSetting['scope.userInfo']) {
-                            console.log('开启用户授权');
-                            that.setUserToken(function(res) {
-                                // 授权成功
-                                if (callback) {
-                                    callback();
-                                }
-                            });
-                        }
-                    },
-                    fail: (res) => {
-                        console.log('设置失败: ', res);
-                    },
-                    complete: (res) => {
-                        console.log('设置完成: ', res);
 
-                    }
-                })
+      wx.authorize({
+        scope: 'scope.userInfo',
+        success() {
+          that.setUserToken(function (res) {
+            // 授权成功
+            if (callback) {
+              callback();
             }
-        })
+          });
+        },
+        fail: function () {
+          wx.getStorage({
+            key: 'honey-token',
+            success: function (res) {
+              if (callback) {
+                callback();
+              }
+            },
+            fail: function () {
+              wx.openSetting({
+                success: (res) => {
+                  console.log('openSetting设置成功: ', res);
+                  if (res.authSetting['scope.userInfo']) {
+                    console.log('开启用户授权');
+                    that.setUserToken(function (res) {
+                      // 授权成功
+                      if (callback) {
+                        callback();
+                      }
+                    });
+                  }
+                },
+                fail: (res) => {
+                  console.log('设置失败: ', res);
+                },
+                complete: (res) => {
+                  console.log('设置完成: ', res);
+
+                }
+              })
+            }
+          })
+        }
+      })
+
+
 
     },
     setUserToken: function(callback) {
